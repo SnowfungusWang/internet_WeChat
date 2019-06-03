@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
         endDate: event.endDate,
         remark: event.remark || '',
         contact: event.contact,
-        openId: ctx.OPENID
+        openid: ctx.OPENID
       }
     });
     return {

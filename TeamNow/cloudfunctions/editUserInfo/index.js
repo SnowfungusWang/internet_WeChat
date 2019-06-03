@@ -8,8 +8,12 @@ const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  const ctx = cloud.getWXContext();
+  const openid = ctx.OPENID;
   try {
-    const res = await db.collection('user').doc(event.userId).update({
+    const res = await db.collection('user').where({
+      openid: openid
+    }).update({
       data: {
         name: event.name,
         studentId: event.studentId,
