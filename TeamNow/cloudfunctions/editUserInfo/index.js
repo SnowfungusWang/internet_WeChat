@@ -9,17 +9,13 @@ const _ = db.command;
 // 云函数入口函数
 exports.main = async (event, context) => {
   try {
-    const res = await db.collection('team').doc(event.teamId).update({
+    const res = await db.collection('user').doc(event.userId).update({
       data: {
-        teamName: event.teamName,
-        activityName: event.activityName,
-        activityIntro: event.activityIntro,
-        expectNum: event.expectNum,
-        require: event.require,
-        endDate: event.endDate,
-        remark: event.remark,
+        name: event.name,
+        studentId: event.studentId,
+        email: event.email,
         contact: event.contact,
-        members: event.members
+        intro: event.intro
       }
     });
     if (res.stats.updated == 1) {
@@ -33,7 +29,7 @@ exports.main = async (event, context) => {
         msg: '修改用户信息失败'
       };
     }
-  } catch (e) {
+  } catch(e) {
     console.error(e);
     return {
       success: false,

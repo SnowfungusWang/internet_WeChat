@@ -9,20 +9,18 @@ const _ = db.command;
 // 云函数入口函数
 exports.main = async (event, context) => {
   try {
-    const res = await db.collection('team').doc(event.teamId).remove({
-      success: res => {
-        return {
-          success: true,
-          msg: ''
-        };
-      },
-      fail: err => {
-        return {
-          success: false,
-          msg: err
-        };
-      }
-    })
+    const res = await db.collection('team').doc(event.teamId).remove();
+    if (res.stats.removed == 1) {
+      return {
+        success: true,
+        msg: ''
+      };
+    } else {
+      return {
+        success: false,
+        msg: '删除招募信息失败'
+      };
+    }
   } catch(e) {
     console.error(e)
     return {

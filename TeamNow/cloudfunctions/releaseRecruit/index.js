@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
       data: {
         teamName: event.teamName,
         activityName: event.activityName,
-        members: '',
+        members: event.members,
         activityIntro: event.activityIntro,
         expectNum: event.expectNum,
         require: event.require,

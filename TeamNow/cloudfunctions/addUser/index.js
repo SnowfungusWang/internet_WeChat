@@ -36,9 +36,8 @@ exports.main = async (event, context) => {
           name: '',
           studentId: '',
           email: '',
-          qq: '',
-          wx: '',
-          phone: ''
+          contact: '',
+          intro: ''
         }
       });
       return {
