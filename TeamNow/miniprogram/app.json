@@ -8,7 +8,7 @@
     "pages/ucenter/aboutMore/aboutMore",
     "pages/member/memberList/memberList",
     "pages/member/memberDetail/memberDetail",
-    "pages/member/memberEdit/memberEidt",
+    "pages/member/memberEdit/memberEdit",
     "pages/team/teamDetail/teamDetail",
     "pages/team/teamEdit/teamEdit",
     "pages/team/modifysuccess/modifysuccess"

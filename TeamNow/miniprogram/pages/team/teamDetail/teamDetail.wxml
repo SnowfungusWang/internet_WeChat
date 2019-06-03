@@ -41,6 +41,6 @@
 </view>
 <view class='detail_other'>
   <text>备注：</text>
-  <textarea value='{{ohter}}' class='other'  disabled >
+  <textarea value='{{other}}' class='other'  disabled >
   </textarea>
 </view>

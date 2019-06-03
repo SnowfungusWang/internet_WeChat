@@ -1,4 +1,4 @@
-<!--miniprogram/pages/team/teamDetail/teamDetail.wxml-->
+
 
 <view class="detail_teamName">
   <text>团队名称：</text>
@@ -64,7 +64,7 @@
 <view class='detail_other'>
   <text>备注：</text>
   <textarea placeholder="请添加备注信息" 
-            value='{{ohter}}'   
+            value='{{other}}'   
             bindblur='bindotherBlur'   
             auto-focus
             class='other' >

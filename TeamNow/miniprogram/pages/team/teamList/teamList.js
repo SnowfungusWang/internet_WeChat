@@ -76,5 +76,15 @@ Page({
     wx.navigateTo({
       url: '../teamDetail/teamDetail'
     })
+  },
+  toMemberDetail: function (e) {
+    wx.navigateTo({
+      url: '../../member/memberDetail/memberDetail'
+    })
+  },
+  toMemberEdit: function (e) {
+    wx.navigateTo({
+      url: '../../member/memberEdit/memberEdit'
+    })
   }
 })

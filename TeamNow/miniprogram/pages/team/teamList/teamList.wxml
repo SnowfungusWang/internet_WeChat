@@ -2,4 +2,5 @@
 <text>miniprogram/pages/team/teamList/teamList.wxml</text>
 <button bindtap='toEdit'>toEdit</button>
 <button bindtap='toDetail'>toDetail</button>
-
+<button bindtap='toMemberDetail'>toMemberDetail</button>
+<button bindtap='toMemberEdit'>toMemberEdit</button>
