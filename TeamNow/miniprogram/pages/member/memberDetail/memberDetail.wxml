@@ -13,8 +13,7 @@
 </view> 
 <view class='detail_selfInfo'>
   <text>自我简介：</text>
-  <textarea placeholder="请添加自我简介" 
-            value='{{selfInfo}}'  
+  <textarea value='{{selfInfo}}'  
             class='selfInfo'
             disabled>
   </textarea>
