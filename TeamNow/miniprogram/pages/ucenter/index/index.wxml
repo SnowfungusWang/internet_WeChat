@@ -1,0 +1,4 @@
+<!--miniprogram/pages/ucenter/index/index.wxml-->
+<text>个人中心主页</text>
+<button>添加招募</button>
+<button>添加组队申请</button>

@@ -1,16 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid"
+
+    "pages/ucenter/index/index",
+    "pages/ucenter/userInfo/userInfo",
+    "pages/ucenter/needTeam/needTeam",
+    "pages/ucenter/needMember/needMember",
+    "pages/ucenter/aboutMore/aboutMore",
+    "pages/member/memberList/memberList",
+    "pages/member/memberDetail/memberDetail",
+    "pages/member/memberEdit/memberEidt",
+    "pages/team/teamDetail/teamDetail",
+    "pages/team/teamEdit/teamEdit",
+    "pages/team/teamList/teamList"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
