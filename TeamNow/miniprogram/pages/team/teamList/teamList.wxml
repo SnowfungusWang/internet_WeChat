@@ -1,2 +1,3 @@
 <!--miniprogram/pages/team/teamList/teamList.wxml-->
 <text>miniprogram/pages/team/teamList/teamList.wxml</text>
+<button bindtap='toDetail'>toDetail</button>

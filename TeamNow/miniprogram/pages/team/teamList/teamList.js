@@ -62,5 +62,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  /**
+   * 到hxh的detail界面
+   */
+  toDetail:function(e){
+    wx.navigateTo({
+      url:'../teamDetail/teamDetail'
+    })
+
+    }
 })
