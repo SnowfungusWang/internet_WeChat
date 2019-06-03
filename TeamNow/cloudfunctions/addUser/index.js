@@ -32,7 +32,7 @@ exports.main = async (event, context) => {
     try {
       let res = await db.collection('user').add({
         data: {
-          userId: openid,
+          openid: openid,
           name: '',
           studentId: '',
           email: '',

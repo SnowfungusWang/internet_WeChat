@@ -8,19 +8,20 @@ const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  const ctx = cloud.getWXContext();
   try {
     const res = await db.collection('team').add({
       data: {
         teamName: event.teamName,
         activityName: event.activityName,
-        members: event.members,
+        members: event.members || '',
         activityIntro: event.activityIntro,
         expectNum: event.expectNum,
         require: event.require,
         endDate: event.endDate,
         remark: event.remark || '',
         contact: event.contact,
-        userId: event.userId
+        openId: ctx.OPENID
       }
     });
     return {
