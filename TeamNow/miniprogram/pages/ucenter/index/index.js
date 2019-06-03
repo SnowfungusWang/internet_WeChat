@@ -62,5 +62,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 跳转
+   */
+  needmember:function(e){
+    wx.navigateTo({
+      url: '../needMember/needMember',
+    })
+  },
+  needteam: function (e) {
+    wx.navigateTo({
+      url: '../needTeam/needTeam',
+    })
   }
 })

@@ -1,4 +1,4 @@
 <!--miniprogram/pages/ucenter/index/index.wxml-->
 <text>个人中心主页</text>
-<button>添加招募</button>
-<button>添加组队申请</button>
+<button bindtap='needmember'>添加招募</button>
+<button bindtap='needteam'>添加组队申请</button>
