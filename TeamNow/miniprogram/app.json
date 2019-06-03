@@ -10,7 +10,8 @@
     "pages/member/memberDetail/memberDetail",
     "pages/member/memberEdit/memberEidt",
     "pages/team/teamDetail/teamDetail",
-    "pages/team/teamEdit/teamEdit"
+    "pages/team/teamEdit/teamEdit",
+    "pages/team/modifysuccess/modifysuccess"
     
   ],
   "window": {

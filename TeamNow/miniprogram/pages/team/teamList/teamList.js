@@ -65,12 +65,16 @@ Page({
   },
 
   /**
-   * 到hxh的detail界面
+   * 到hxh的edit界面
    */
-  toDetail:function(e){
+  toEdit:function(e){
     wx.navigateTo({
-      url:'../teamDetail/teamDetail'
+      url:'../teamEdit/teamEdit'
     })
-
-    }
+  },
+  toDetail: function (e) {
+    wx.navigateTo({
+      url: '../teamDetail/teamDetail'
+    })
+  }
 })
