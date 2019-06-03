@@ -1,10 +1,18 @@
-// miniprogram/pages/member/memberDetail/memberDetail.js
+// miniprogram/pages/team/teamDetail/teamDetail.js
+var date = new Date()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    activityName: '',
+    name: '',
+    school: '',
+    selfInfo: '',
+    contact: '',
+    ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
+    other: '',
 
   },
 
@@ -62,5 +70,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
 })
