@@ -157,14 +157,44 @@ Page({
     this.setData({
       other: e.detail.value
     })
+    console.log(this.data)
+  },
+  
+  bindFormSubmit: function (e) {
+    console.log("start submit member")
+    wx.cloud.callFunction({
+      name: 'AddApplication',
+      data: {
+        name: this.data.name,
+        school: this.data.school,
+        selfDescription: this.data.selfInfo,
+        contact: this.data.contact,
+        title: this.data.activityName,
+        remark: this.data.other,
+        time: this.data.ddl,
+      },
+      success: res => {
+        console.log('needmember', res)
+        wx.showModal({
+          title: '您已提交成功',
+          content: '您已成功提交组队申请，可到“我的的组队申请”中查看',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            console.log(res);
+            if (res.confirm) {
+              console.log('回到主界面')
+              wx.switchTab({
+                url: '../index/index',
+              })
+            } 
+          }
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 
-  /**
-   * modify
-   */
-  submit: function (e) {
-    // wx.navigateTo({
-    //   url: '../modifysuccess/modifysuccess',
-    // })
-  },
 })

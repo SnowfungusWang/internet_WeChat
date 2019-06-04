@@ -1,1 +1,32 @@
-/* miniprogram/pages/ucenter/userInfo/userInfo.wxss */
+.contain{
+    background-color: #fff;
+    width: 615rpx;
+    height: auto;
+    margin: auto;
+    margin-top:40rpx; 
+    padding: 10rpx 30rpx;
+    border-radius: 15rpx;
+    border: 1rpx solid #68015D;
+    box-shadow: 0 0 5rpx #68015D; 
+}
+.name,.studentId,.email,.contact,.intro{
+    border-bottom:dashed rgba(146, 0, 139, 0.747);
+    word-break: break-all;
+    font-size: 40rpx;
+    padding: 5rpx,0;
+    margin: 20rpx 0;
+    display: flex;
+}
+.title{
+    min-width: 200rpx;
+}
+
+.info{
+}
+
+.modify{
+  margin-top: 20rpx;
+  background-color: #68015D;
+  color: #fff;
+  width: 690rpx;
+}

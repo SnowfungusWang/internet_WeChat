@@ -1,3 +1,7 @@
-<view>
+<view >
   我的招募列表
+</view>
+<view class='container'>
+  <text class='name_'></text>
+
 </view>

@@ -1,30 +1,22 @@
-// miniprogram/pages/ucenter/userInfo/userInfo.js
+// miniprogram/pages/ucenter/editInfo/editInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:'',
-    studentId:'',
-    email:'',
-    contact:'',
-    intro:''
+    name: '',
+    studentId: '',
+    email: '',
+    contact: '',
+    intro: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //mock
-    console.log(this)
-    this.setData({
-      name: 'miao',
-      studentId: '171252298',
-      email: '13248612315648@smail.nju.edu.cn',
-      contact: "asdffasdfasdfsdsfasfadfasdWERFEQ",
-      intro: 'I am a pretty handsome guy.hhhhhhgggggggggggggggggggggggghhhfsad'
-    })
+
   },
 
   /**
@@ -38,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -74,10 +66,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  edit:function(){
-    wx.navigateTo({
-      url: '../editInfo/editInfo',
-    });
   }
 })

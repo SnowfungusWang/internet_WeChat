@@ -1,0 +1,37 @@
+<form bindsubmit="bindFormSubmit">
+<view class="detail_name">
+  <text>姓名：</text>
+  <input class="name" value="{{ newName }}" 
+  auto-focus bindinput="name_inputChange" bindconfirm="name_detail"/>
+</view> 
+<view class="detail_studentId">
+  <text>学号：</text>
+  <input class="studentId" value="{{newStudentId }}" 
+  auto-focus bindinput="studentId_inputChange" bindconfirm="studentId_detail"/>
+</view> 
+<view class="detail_email">
+  <text>学号：</text>
+  <input class="email" value="{{newEmail }}" 
+  auto-focus bindinput="email_inputChange" bindconfirm="email_detail"/>
+</view> 
+<view class='detail_selfInfo'>
+  <text>自我简介：</text>
+  <textarea placeholder="请添加自我简介" 
+            value='{{selfInfo}}'   
+            bindblur='bindselfInfoBlur'   
+            auto-focus 
+            class='selfInfo'>
+  </textarea>
+</view>
+
+<view class='detail_contact'>
+  <text>联系方式：</text>
+  <textarea placeholder="请说明是QQ、微信、邮箱、电话或其他联系方式" 
+            value='{{contact}}'   
+            bindblur='bindcontactBlur'   
+            auto-focus
+            class='contact' >
+  </textarea>
+</view>
+<button form-type="submit" class='submit'>修改</button>
+</form>

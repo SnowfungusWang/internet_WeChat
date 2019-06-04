@@ -1,3 +1,24 @@
-<!--miniprogram/pages/ucenter/userInfo/userInfo.wxml-->
-<text>基本信息</text>
-<button>编辑个人信息</button>
+<view class='contain'>
+  <view class='name'>
+    <text class='title'>姓名:</text>
+    <text class='info'>{{name}}</text>
+  </view>
+  <view class='studentId'>
+    <text class='title'>学号:</text>
+    <text class='info'>{{studentId}}</text>
+  </view>
+  <view class='email'>
+    <text class='title'>邮箱:</text>
+    <text class='info'>{{email}}</text>
+  </view>
+  <view class='contact'>
+    <text class='title'>联系方式:</text>
+    <text class='info'>{{contact}}</text>
+  </view>
+  <view class='intro'>
+    <text class='title'>个人简介:</text>
+    <text class='info'>{{intro}}</text> 
+  </view>
+</view>
+
+<button class='modify' bindtap='edit'>修改个人信息</button>

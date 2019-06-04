@@ -1,3 +1,4 @@
+<form bindsubmit="bindFormSubmit">
 <view class="detail_teamName">
   <text>团队名称：</text>
   <input class="teamName" value="{{ teamName }}" 
@@ -68,4 +69,5 @@
             class='other' >
   </textarea>
 </view>
-<button class='modify' bindtap='submit'>提交</button>
+<button form-type="submit" class='submit'>提交</button>
+</form>
