@@ -1,0 +1,5 @@
+<!--miniprogram/component/member_card/member_card.wxml-->
+<view class="inner">
+  {{innerText}}
+</view>
+<slot></slot>
