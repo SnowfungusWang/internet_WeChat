@@ -9,11 +9,11 @@
       <view class="navigator-text">个人信息</view>
       <view class="navigator-arrow"></view>
     </navigator>
-    <navigator url="../needmember/needmember" class="navigator">
+    <navigator url="../needMemberList/needMember" class="navigator">
       <view class="navigator-text">我的招募</view>
       <view class="navigator-arrow"></view>
     </navigator>
-    <navigator url="../needteam/needteam" class="navigator">
+    <navigator url="../needTeamList/needTeam" class="navigator">
       <view class="navigator-text">我的组队</view>
       <view class="navigator-arrow"></view>
     </navigator>
