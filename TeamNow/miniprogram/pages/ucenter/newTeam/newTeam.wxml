@@ -1,0 +1,71 @@
+<view class="detail_teamName">
+  <text>团队名称：</text>
+  <input class="teamName" value="{{ teamName }}" 
+  placeholder="请输入团队名称" 
+  auto-focus bindinput="teamName_inputChange" bindconfirm="teamName_detail"/>
+</view>  
+<view class="detail_activityName">
+  <text>活动名称：</text>
+  <input class="activityName" value="{{ activityName }}" 
+  placeholder="请输入活动名称" 
+  auto-focus bindinput="activityName_inputChange" bindconfirm="activityName_detail"/>
+</view> 
+<view class='detail_activityContent'>
+  <text>活动内容：</text>
+  <textarea placeholder="请添加活动的具体内容" 
+            value='{{activityContent}}'   
+            bindblur='bindactivityContentBlur'   
+            auto-focus 
+            class='activityContent'>
+  </textarea>
+</view>
+<view class="detail_needNum">
+  <text>需要人数：</text>
+  <input class="needNum" value="{{ needNum}}" 
+  placeholder="请输入需要招募人数" 
+  auto-focus bindinput="needNum_inputChange" bindconfirm="needNum_detail"/>
+</view> 
+<view class='detail_memberList'>
+  <text>已有成员：</text>
+  <textarea placeholder="请添加已有成员名单及信息" 
+            value='{{memberList}}'   
+            bindblur='bindmemberListBlur'   
+            auto-focus
+            class='memberList' >
+  </textarea>
+</view>
+<view class='detail_request'>
+  <text>招募要求：</text>
+  <textarea placeholder="请添加招募要求" 
+            value='{{request}}'   
+            bindblur='bindrequestBlur'   
+            auto-focus 
+            class='request'>
+  </textarea>
+</view>
+<view class='detail_contact'>
+  <text>联系方式：</text>
+  <textarea placeholder="请说明是QQ、微信、邮箱、电话或其他联系方式" 
+            value='{{contact}}'   
+            bindblur='bindcontactBlur'   
+            auto-focus
+            class='contact' >
+  </textarea>
+</view>
+<view class='detail_ddl'>
+  <picker mode="date" value="{{ddl}}" bindchange="bindddlChange">
+    <view class="ddl">
+      截止日期: {{ddl}}
+    </view>
+  </picker>
+</view>
+<view class='detail_other'>
+  <text>备注：</text>
+  <textarea placeholder="请添加备注信息" 
+            value='{{other}}'   
+            bindblur='bindotherBlur'   
+            auto-focus
+            class='other' >
+  </textarea>
+</view>
+<button class='modify' bindtap='submit'>提交</button>

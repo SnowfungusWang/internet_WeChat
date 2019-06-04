@@ -3,8 +3,10 @@
     "pages/team/teamList/teamList",
     "pages/ucenter/index/index",
     "pages/ucenter/userInfo/userInfo",
-    "pages/ucenter/needTeam/needTeam",
-    "pages/ucenter/needMember/needMember",
+    "pages/ucenter/needTeamList/needTeam",
+    "pages/ucenter/needMemberList/needMember",
+    "pages/ucenter/newMember/newMember",
+    "pages/ucenter/newTeam/newTeam",
     "pages/ucenter/aboutMore/aboutMore",
     "pages/member/memberList/memberList",
     "pages/member/memberDetail/memberDetail",
@@ -12,7 +14,7 @@
     "pages/team/teamDetail/teamDetail",
     "pages/team/teamEdit/teamEdit",
     "pages/team/modifysuccess/modifysuccess"
-    
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -37,13 +39,13 @@
         "pagePath": "pages/member/memberList/memberList",
         "text": "组队",
         "iconPath": "images/tab/qiuzhiyixiang-2.png",
-        "selectedIconPath":"images/tab/qiuzhiyixiang.png"
+        "selectedIconPath": "images/tab/qiuzhiyixiang.png"
       },
       {
         "pagePath": "pages/ucenter/index/index",
         "text": "个人中心",
         "iconPath": "images/tab/gerenzhongxinxuanzhong-2.png",
-        "selectedIconPath":"images/tab/gerenzhongxinxuanzhong.png"
+        "selectedIconPath": "images/tab/gerenzhongxinxuanzhong.png"
       }
     ]
   },

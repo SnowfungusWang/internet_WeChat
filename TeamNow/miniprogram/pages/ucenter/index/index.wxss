@@ -1,1 +1,59 @@
-/* miniprogram/pages/ucenter/index/index.wxss */
+.basicInfo{
+  background-color: #FFFFFF;
+  width: 650rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx
+}
+.basicInfo .avatar{
+  height: 148rpx;
+  width: 148rpx;
+  border-radius: 50%;
+  margin-right: 70rpx
+}
+
+.basicInfo .username{
+
+}
+
+.detailList{
+  position: relative;
+ 
+  width: 690rpx;
+}
+
+.navigator {
+  padding: 20rpx 30rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rpx; 
+}
+
+.navigator-text {
+  flex: 1;
+}
+
+.navigator-arrow {
+  padding-right: 26rpx;
+  text-align: right;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  top: 50%;
+  margin-top: -8rpx;
+  right: 28rpx;
+}
+.button{
+  margin-top: 20rpx;
+  background-color: #68015D;
+  color: #fff;
+  width: 690rpx;
+}

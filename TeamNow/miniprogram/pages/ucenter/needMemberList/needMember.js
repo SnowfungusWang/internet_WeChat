@@ -182,7 +182,7 @@ Page({
   /**
    * modify
    */
-  modify: function (e) {
+  submit: function (e) {
     // wx.navigateTo({
     //   url: '../modifysuccess/modifysuccess',
     // })

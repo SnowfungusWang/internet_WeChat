@@ -1,4 +1,34 @@
-<!--miniprogram/pages/ucenter/index/index.wxml-->
-<text>个人中心主页</text>
-<button bindtap='needmember'>添加招募</button>
-<button bindtap='needteam'>添加组队申请</button>
+<view class='container'>
+  <view class='basicInfo'>
+    <image class="avatar" src="../../images/tab/code-db-inc-dec.png"></image>
+    <view class='username'>xiaoming</view>
+  </view>
+
+  <view class='detailList'>
+    <navigator url="../userInfo/userInfo" class="navigator">
+      <view class="navigator-text">个人信息</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+    <navigator url="../needmember/needmember" class="navigator">
+      <view class="navigator-text">我的招募</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+    <navigator url="../needteam/needteam" class="navigator">
+      <view class="navigator-text">我的组队</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+    <navigator url="../aboutMore/aboutMore" class="navigator">
+      <view class="navigator-text">关于我们</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  
+  </view>
+
+  <view newButton>
+    <button class='button' bindtap='needmember'>添加招募</button>
+    <button class='button' bindtap='needteam'>添加组队申请</button>
+  </view>
+
+</view>
+
+

@@ -1,5 +1,3 @@
-
-
 <view class="detail_teamName">
   <text>团队名称：</text>
   <input class="teamName" value="{{ teamName }}" 
@@ -70,5 +68,4 @@
             class='other' >
   </textarea>
 </view>
-<button class='modify' bindtap='modify'>修改</button>
-<button class='delete' bindtap='delete'>删除</button>
+<button class='modify' bindtap='submit'>提交</button>

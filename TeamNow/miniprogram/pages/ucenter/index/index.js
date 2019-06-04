@@ -69,12 +69,12 @@ Page({
    */
   needmember:function(e){
     wx.navigateTo({
-      url: '../needMember/needMember',
+      url: '../newTeam/newTeam',
     })
   },
   needteam: function (e) {
     wx.navigateTo({
-      url: '../needTeam/needTeam',
+      url: '../newMember/newMember',
     })
   }
 })
