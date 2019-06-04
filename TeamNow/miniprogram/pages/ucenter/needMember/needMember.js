@@ -15,6 +15,7 @@ Page({
     contact: '',
     ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
     other: '',
+    focus: true,
 
   },
 
@@ -179,19 +180,37 @@ Page({
     })
   },
 
-  /**
-   * modify
-   */
-  modify: function (e) {
-    // wx.navigateTo({
-    //   url: '../modifysuccess/modifysuccess',
-    // })
+/**
+ * 点击招募button提交整个表单
+ */
+  bindFormSubmit: function (e) {
+    this.setData({
+      focus: 'false',
+      activityContent: this.data.activityContent,
+      memberList: this.data.memberList,
+      request: this.data.request,
+      contact: this.data.contact,
+      other: this.data.other,
+    })
+    wx.cloud.callFunction({
+      name: 'releaseRecruit',
+      data: {
+        activityName: this.data.activityName,
+        activityIntro: this.data.activityContent,
+        expectNum: this.data.needNum,
+        require: this.data.request,
+        endDate: this.data.ddl,
+        remark: this.data.other,
+        teamName: this.data.teamName,
+        contact: this.data.contact,
+        members:this.data.memberList,
+      },
+      success: res => {
+        console.log('needmember', res)
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
-
-  /**
-   * delete
-   */
-  delete: function (e) {
-
-  }
 })

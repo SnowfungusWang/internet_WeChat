@@ -1,5 +1,5 @@
 
-
+<form bindsubmit="bindFormSubmit">
 <view class="detail_teamName">
   <text>团队名称：</text>
   <input class="teamName" value="{{ teamName }}" 
@@ -17,7 +17,7 @@
   <textarea placeholder="请添加活动的具体内容" 
             value='{{activityContent}}'   
             bindblur='bindactivityContentBlur'   
-            auto-focus 
+            focus='{{focus}}'
             class='activityContent'>
   </textarea>
 </view>
@@ -32,7 +32,7 @@
   <textarea placeholder="请添加已有成员名单及信息" 
             value='{{memberList}}'   
             bindblur='bindmemberListBlur'   
-            auto-focus
+            focus='{{focus}}'
             class='memberList' >
   </textarea>
 </view>
@@ -41,7 +41,7 @@
   <textarea placeholder="请添加招募要求" 
             value='{{request}}'   
             bindblur='bindrequestBlur'   
-            auto-focus 
+            focus='{{focus}}' 
             class='request'>
   </textarea>
 </view>
@@ -50,7 +50,7 @@
   <textarea placeholder="请说明是QQ、微信、邮箱、电话或其他联系方式" 
             value='{{contact}}'   
             bindblur='bindcontactBlur'   
-            auto-focus
+            focus='{{focus}}'
             class='contact' >
   </textarea>
 </view>
@@ -66,9 +66,9 @@
   <textarea placeholder="请添加备注信息" 
             value='{{other}}'   
             bindblur='bindotherBlur'   
-            auto-focus
+            focus='{{focus}}'
             class='other' >
   </textarea>
 </view>
-<button class='modify' bindtap='modify'>修改</button>
-<button class='delete' bindtap='delete'>删除</button>
+<button form-type="submit" class='submit'>招募</button>
+</form>
