@@ -92,7 +92,20 @@ Page({
   //   })
   // },
   getList: function () {
-    let that = this;
+    
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    const that = this;
     wx.cloud.callFunction({
       name: 'getAllRecruit',
       data: {
@@ -100,35 +113,25 @@ Page({
       success: function (msg) {
         var recruits = msg.result.recruits;
         // console.log(recruits);
-        // that.data.list = recruits;
-        // console.log(that.data.list[0]);
-
+        that.setData({
+          list : recruits,
+        });
+        
+        console.log(that.data.list);
         // wx.hideLoading();
       },
       fail: function (err) {
         console.error(err)
       }
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    });
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(this.data.list);
   },
 
   /**
