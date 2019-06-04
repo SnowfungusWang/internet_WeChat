@@ -1,0 +1,26 @@
+[
+  {
+    "name": "addApplication-1",
+    "value": {
+      "name": "zhouzheng",
+      "school": "nju",
+      "contact": "316464",
+      "selfDescription": "sasfa",
+      "title": "test",
+      "remark": "31351",
+      "time": "2019-06-11"
+    }
+  },
+  {
+    "name": "addApplication-2",
+    "value": {
+      "name": "zhouzheng",
+      "school": "nju",
+      "contact": "QQ160609777",
+      "selfDescription": "我全栈",
+      "title": "软工二组队",
+      "remark": "",
+      "time": "2019-06-14"
+    }
+  }
+]
