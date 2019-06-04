@@ -8,9 +8,9 @@
 
 <view class='container'>
   <view class='header'>
-    <text class='header-title'>组队信息列表</text>
+    <text class='header-title'>招募信息列表</text>
     <view>只展示有限的信息，点击跳转至对应详情</view>
-    <view>含有搜索框，搜索策略自定义，至少可以按活动和截止日期</view>
+    <view>含有搜索框，搜索策略自定义，至少可以按活动和截止日期（待完成）</view>
   </view>  
   <view class='body'>
 
