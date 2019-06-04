@@ -39,7 +39,7 @@ Page({
   toDetailsTap: function (e) {
     // console.log(e.currentTarget)
     wx.navigateTo({
-      url: "/pages/member/memberDetail/memberDetail?id=" + e.currentTarget.dataset.id
+      url: "/pages/team/teamDetail/teamDetail?id=" + e.currentTarget.dataset.id
     })
   },
   inputTyping: function (e) {

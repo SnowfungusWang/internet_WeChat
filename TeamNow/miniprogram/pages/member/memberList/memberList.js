@@ -1,4 +1,5 @@
 // miniprogram/pages/member/memberList.js
+// miniprogram/pages/team/teamList/teamList.js
 Page({
 
   /**
@@ -8,34 +9,19 @@ Page({
     inputShowed: false, // 是否显示搜索框
     inputVal: "", // 搜索框内容
     list: [{
-      activityIntro: "活动的简要介绍",
-      activityName: "校运会",
-      contact: "18811112222",
-      endDate: "2019-06-04",
-      expectNum: "14",
-      members: "5",
-      openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-      remark: "8",
-      require: "9",
-      teamName: "team1",
-      _id: "6cd397ca5cf5bee00b41160e698d4092"
-    },{
-      activityIntro: "活动介绍",
-      activityName: "活动名称",
-      contact: "联系方式",
-      endDate: "结束日期2019-06-04",
-      expectNum: "期望个数4",
-      members: "已有人数5",
-      openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-      remark: "分数8",
-      require: "需要6",
-      teamName: "队伍名称1",
-      _id: "6cd397ca5cf5bee00b41160e698d4092"
+      contact: "QQ160609777",
+      name: "zhouzheng",
+      remark: "",
+      school: "nju",
+      selfDescription: "我全栈",
+      time: "2019-06-14T00:00:00.000Z",
+      title: "软工二组队",
+      userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
+      _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
     }],
     curPage: 1,
     pageSize: 20
   },
-
 
   toDetailsTap: function (e) {
     // console.log(e.currentTarget)
@@ -54,44 +40,6 @@ Page({
     });
     this.getGoodsList(this.data.activeCategoryId);
   },
-  // getGoodsList: function (categoryId, append) {
-  //   if (categoryId == 0) {
-  //     categoryId = "";
-  //   }
-  //   var that = this;
-  //   wx.showLoading({
-  //     "mask": true
-  //   })
-  //   WXAPI.goods({
-  //     categoryId: categoryId,
-  //     nameLike: that.data.inputVal,
-  //     page: this.data.curPage,
-  //     pageSize: this.data.pageSize
-  //   }).then(function (res) {
-  //     wx.hideLoading()
-  //     if (res.code == 404 || res.code == 700) {
-  //       let newData = {
-  //         loadingMoreHidden: false
-  //       }
-  //       if (!append) {
-  //         newData.goods = []
-  //       }
-  //       that.setData(newData);
-  //       return
-  //     }
-  //     let goods = [];
-  //     if (append) {
-  //       goods = that.data.goods
-  //     }
-  //     for (var i = 0; i < res.data.length; i++) {
-  //       goods.push(res.data[i]);
-  //     }
-  //     that.setData({
-  //       loadingMoreHidden: true,
-  //       goods: goods,
-  //     });
-  //   })
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -103,14 +51,34 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'GetAllApplicaiton',
+      data: {
+      },
+      success: function (msg) {
+        var applications = msg.data;
+        if (applications!=null) {
+          that.setData({
+            list: applications,
+          });
+        }
+        
+
+        console.log(that.data.list);
+      },
+      fail: function (err) {
+        console.error(err)
+      }
+    });
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList();
+    // console.log(this.data.list);
   },
 
   /**
@@ -147,24 +115,4 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  getList: function () {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'getAllRecruit',
-      data: {
-      },
-      success: function (msg) {
-        var recruits = msg.result.recruits;
-        // console.log(recruits);
-        // that.data.list = recruits;
-        // console.log(that.data.list[0]);
-
-        // wx.hideLoading();
-      },
-      fail: function(err){
-        console.error(err)
-      }
-    })
-  }
 })
