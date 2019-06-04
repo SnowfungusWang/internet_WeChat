@@ -4,3 +4,53 @@
 <button bindtap='toDetail'>toDetail</button>
 <button bindtap='toMemberDetail'>toMemberDetail</button>
 <button bindtap='toMemberEdit'>toMemberEdit</button>
+
+
+<view class='container'>
+  <view class='header'>
+    <text class='header-title'>组队信息列表</text>
+    <view>只展示有限的信息，点击跳转至对应详情</view>
+    <view>含有搜索框，搜索策略自定义，至少可以按活动和截止日期</view>
+  </view>  
+  <view class='body'>
+
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text " class="weui-search-bar__input" placeholder="搜索" 
+          value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" 
+          confirm-type="search" bindconfirm='toSearch' />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>      
+    </view>
+    
+
+
+
+    <view class='list-col' wx:for="{{list}}" bindtap='toDetailsTap' data-id="{{item._id}}">
+      <i-card full='true' title="{{item.activityName}}" extra="需要{{ item.require}}人">
+        <view slot="content" class="card_content">
+          <text> 团队名称：{{ item.teamName }}\n\n</text>
+          <!-- <text> 组队信息：\n{{ item.activityIntro }}\n\n</text> -->
+          <!-- <text> 联系方式：\n{{ item.contact }}\n\n</text> -->
+          <!-- <text> 期望人数：\n{{ item.expectNum }}\n\n</text> -->
+          <text> 已有人数：{{ item.members }} / {{ item.expectNum }}\n\n</text>
+          <!-- <text> 备注：\n{{ item.remark }}\n\n</text> -->
+        </view>
+        <view slot="footer">
+          <text> 结束时间： {{ item.endDate }}\n\n</text>
+        </view>
+      </i-card>
+    </view>
+    
+  </view>
+</view>

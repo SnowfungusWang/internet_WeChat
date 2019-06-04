@@ -12,11 +12,11 @@ Page({
       activityName: "校运会",
       contact: "18811112222",
       endDate: "2019-06-04",
-      expectNum: "4",
+      expectNum: "14",
       members: "5",
       openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
       remark: "8",
-      require: "6",
+      require: "9",
       teamName: "team1",
       _id: "6cd397ca5cf5bee00b41160e698d4092"
     },{
