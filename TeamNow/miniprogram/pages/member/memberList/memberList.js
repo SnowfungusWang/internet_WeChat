@@ -18,7 +18,17 @@ Page({
       title: "软工二组队",
       userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
       _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
-    }],
+    }, {
+        contact: "QQ160609777",
+        name: "zhouzheng",
+        remark: "",
+        school: "nju",
+        selfDescription: "我全栈",
+        time: "2019-06-14T00:00:00.000Z",
+        title: "软工二组队",
+        userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
+        _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
+      }],
     curPage: 1,
     pageSize: 20
   },
@@ -53,11 +63,12 @@ Page({
   onReady: function () {
     const that = this;
     wx.cloud.callFunction({
-      name: 'GetAllApplicaiton',
+      name: 'GetAllApplication',
       data: {
       },
       success: function (msg) {
-        var applications = msg.data;
+        console.log(msg.result);
+        var applications = msg.result.data;
         if (applications!=null) {
           that.setData({
             list: applications,

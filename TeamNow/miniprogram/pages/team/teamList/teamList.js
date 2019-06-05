@@ -35,64 +35,81 @@ Page({
     curPage: 1,
     pageSize: 20
   },
-
+  //跳转至详细界面
   toDetailsTap: function (e) {
     // console.log(e.currentTarget)
     wx.navigateTo({
       url: "/pages/team/teamDetail/teamDetail?id=" + e.currentTarget.dataset.id
     })
   },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
+  
   toSearch: function () {
     this.setData({
       curPage: 1
     });
-    this.getGoodsList(this.data.activeCategoryId);
+    this.getSearchList(this.data.activeCategoryId);
   },
-  // getGoodsList: function (categoryId, append) {
-  //   if (categoryId == 0) {
-  //     categoryId = "";
-  //   }
-  //   var that = this;
-  //   wx.showLoading({
-  //     "mask": true
-  //   })
-  //   WXAPI.goods({
-  //     categoryId: categoryId,
-  //     nameLike: that.data.inputVal,
-  //     page: this.data.curPage,
-  //     pageSize: this.data.pageSize
-  //   }).then(function (res) {
-  //     wx.hideLoading()
-  //     if (res.code == 404 || res.code == 700) {
-  //       let newData = {
-  //         loadingMoreHidden: false
-  //       }
-  //       if (!append) {
-  //         newData.goods = []
-  //       }
-  //       that.setData(newData);
-  //       return
-  //     }
-  //     let goods = [];
-  //     if (append) {
-  //       goods = that.data.goods
-  //     }
-  //     for (var i = 0; i < res.data.length; i++) {
-  //       goods.push(res.data[i]);
-  //     }
-  //     that.setData({
-  //       loadingMoreHidden: true,
-  //       goods: goods,
-  //     });
-  //   })
-  // },
-  getList: function () {
-    
+  
+  // 以下为搜索框事件
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    // console.log(e.detail.value);
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  getSearchList: function (categoryId, append) {
+    if (categoryId == 0) {
+      categoryId = "";
+    }
+    var that = this;
+    wx.showLoading({
+      "mask": true
+    })
+    WXAPI.goods({
+      categoryId: categoryId,
+      nameLike: that.data.inputVal,
+      page: this.data.curPage,
+      pageSize: this.data.pageSize
+    }).then(function (res) {
+      wx.hideLoading()
+      if (res.code == 404 || res.code == 700) {
+        let newData = {
+          loadingMoreHidden: false
+        }
+        if (!append) {
+          newData.goods = []
+        }
+        that.setData(newData);
+        return
+      }
+      let goods = [];
+      if (append) {
+        goods = that.data.goods
+      }
+      for (var i = 0; i < res.data.length; i++) {
+        goods.push(res.data[i]);
+      }
+      that.setData({
+        loadingMoreHidden: true,
+        goods: goods,
+      });
+    })
   },
   /**
    * 生命周期函数--监听页面加载
