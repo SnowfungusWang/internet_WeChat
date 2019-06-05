@@ -8,11 +8,11 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
   const _ = db.command
-  try{
+  try {
     return await db.collection("application").where({
       userId: wxContext.OPENID
     }).get()
-  }catch(err){
+  } catch (err) {
     console.log(err)
   }
 }
