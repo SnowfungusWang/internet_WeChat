@@ -1,2 +1,40 @@
-<!--miniprogram/pages/login/login.wxml-->
-<text>miniprogram/pages/login/login.wxml</text>
+<view class='title'>请完善您的个人信息</view>
+<form bindsubmit="bindFormSubmit">
+
+<view class="detail_name">
+  <text>姓名：</text>
+  <input class="name" value="{{ oldName }}" 
+  auto-focus bindinput="name_input" bindconfirm="name_detail"/>
+</view> 
+<view class="detail_studentId">
+  <text>学号：</text>
+  <input class="studentId" value="{{oldStudentId }}" 
+  auto-focus bindinput="studentId_input" bindconfirm="studentId_detail"/>
+</view> 
+<view class="detail_email">
+  <text>邮箱：</text>
+  <input class="email" value="{{oldEmail }}" 
+  auto-focus bindinput="email_input" bindconfirm="email_detail"/>
+</view> 
+
+<view class='detail_contact'>
+  <text>联系方式：</text>
+  <textarea placeholder="请说明是QQ、微信、邮箱、电话或其他联系方式" 
+            value='{{oldContact}}'   
+            bindblur='bindcontactBlur'   
+            auto-focus
+            class='contact' >
+  </textarea>
+</view>
+<view class='detail_selfInfo'>
+  <text>自我简介：</text>
+  <textarea placeholder="请添加自我简介" 
+            value='{{intro}}'   
+            bindblur='bindselfInfoBlur'   
+            auto-focus 
+            class='selfInfo'>
+  </textarea>
+</view>
+<button form-type="submit" class='submit'>提交</button>
+</form>
+

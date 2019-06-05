@@ -18,14 +18,32 @@ Page({
   onLoad: function (options) {
     //mock
     console.log(this)
-    this.setData({
-      name: 'miao',
-      studentId: '171252298',
-      email: '13248612315648@smail.nju.edu.cn',
-      contact: "asdffasdfasdfsdsfasfadfasdWERFEQ",
-      intro: 'I am a pretty handsome guy.hhhhhhgggggggggggggggggggggggghhhfsad'
+    // this.setData({
+    //   name: 'miao',
+    //   studentId: '171252298',
+    //   email: '13248612315648@smail.nju.edu.cn',
+    //   contact: "asdffasdfasdfsdsfasfadfasdWERFEQ",
+    //   intro: 'I am a pretty handsome guy.hhhhhhgggggggggggggggggggggggghhhfsad'
+    // })
+    let that=this
+    wx.cloud.callFunction({
+      name:'getUserInfo',
+      success(res){
+        console.log(res)
+        let result=res.result
+        if(result.success){
+          let user=result.user
+          that.setData({
+            name: user.name,
+            studentId: user.studentId,
+            email: user.email,
+            contact: user.contact,
+            intro: user.intro
+          })
+        }
+      }
     })
-  },
+      },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

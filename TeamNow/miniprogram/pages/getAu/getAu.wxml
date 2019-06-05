@@ -1,0 +1,6 @@
+<!--pages/getAu/getAu.wxml-->
+<view class='h1'>Team Now</view>
+<view class='intro'>寻：队员&入：队伍</view>
+<view class='icon'>👇</view>
+<view class='guide'></view>
+ <button class='auth' open-type="getUserInfo" bindgetuserinfo="authorize">just start now</button>
