@@ -29,6 +29,25 @@ exports.main = async (event, context) => {
   try {
     const response = await rp(AccessToken_options);
     let openid = response.openid;
+    //搜索此openid的用户是否已存在
+    try {
+      let find = await db.collection('user').where({
+        openid: openid
+      }).get();
+      if (find.data.length !== 0) {
+        return {
+          success: false,
+          msg: '用户已存在'
+        };
+      }
+    } catch(e) {
+      console.error(e);
+      return {
+        success: false,
+        msg: '查询失败'
+      };
+    }
+    //若不存在,新增用户
     try {
       let res = await db.collection('user').add({
         data: {
