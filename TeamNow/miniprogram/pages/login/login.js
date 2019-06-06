@@ -136,11 +136,11 @@ Page({
                       showCancel: false,
                       confirmText: "确定",
                       success: function (res) {
-                        console.log(res);
+                        // console.log(res);
                         if (res.confirm) {
                           console.log('进入')
                           wx.switchTab({
-                            url: '../ucenter/userInfo/userInfo',
+                            url: '../ucenter/index/index',
                           })
                         }
                       }
