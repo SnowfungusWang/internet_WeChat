@@ -192,7 +192,9 @@ Page({
  * 点击招募button提交整个表单
  */
   bindFormSubmit: function (e) {
-    console.log('!!')
+    // console.log('!!')
+    let that=this.data.memberID
+    console.log(that)
     this.setData({
       focus: 'false',
       contact: this.data.contact,
@@ -212,7 +214,23 @@ Page({
         time:this.data.ddl
       },
       success: res => {
-        console.log('memberedit', res)
+        // console.log('memberedit', res)
+        // console.log(that+'dsaf')
+        // let id=that
+        wx.showModal({
+          title: '修改成功',
+          content: '您已成功修改组队信息',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            if (res.confirm) {
+              console.log('回到个人信息')
+              wx.navigateTo({
+                url: '/pages/ucenter/needTeamDetail/needTeam?id='+that,
+              })
+            }
+          }
+        })
       },
       fail: err => {
         console.error(err)
@@ -224,6 +242,7 @@ Page({
    * delete
    */
   delete: function (e) {
+    let that = this.data.memberID
     wx.cloud.callFunction({
       name: 'DeleteApplicationById',
       data: {
@@ -231,6 +250,20 @@ Page({
       },
       success: res => {
         console.log('member_delete', res)
+        wx.showModal({
+          title: '删除成功',
+          content: '您已成功删除组队信息',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            if (res.confirm) {
+              console.log('回到个人信息')
+              wx.navigateTo({
+                url: '/pages/ucenter/needTeamList/needTeam',
+              })
+            }
+          }
+        })
       },
       fail: err => {
         console.error(err)
