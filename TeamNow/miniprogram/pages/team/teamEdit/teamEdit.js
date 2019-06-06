@@ -15,6 +15,7 @@ Page({
     contact: '',
     ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
     other: '',
+    teamID:'',
 
   },
 
@@ -22,7 +23,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.setData({
+      teamID: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'getRecruitById',
+      data: {
+        teamId: this.data.teamID,
+      },
+      success: res => {
+        console.log('teamEdit', res)
+        this.setData({
+          teamName: res.result.recruit.teamName,
+          activityName: res.result.recruit.activityName,
+          activityContent: res.result.recruit.activityIntro,
+          needNum: res.result.recruit.expectNum,
+          memberList: res.result.recruit.members,
+          request: res.result.recruit.require,
+          contact: res.result.recruit.contact,
+          ddl: res.result.recruit.endDate,
+          other: res.result.recruit.remark,
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
 
   },
 
@@ -45,7 +71,7 @@ Page({
    */
   onHide: function () {
 
-  },
+  }, 
 
   /**
    * 生命周期函数--监听页面卸载
@@ -192,26 +218,27 @@ Page({
       contact: this.data.contact,
       other: this.data.other,
     })
-    // wx.cloud.callFunction({
-    //   name: 'releaseRecruit',
-    //   data: {
-    //     activityName: this.data.activityName,
-    //     activityIntro: this.data.activityContent,
-    //     expectNum: this.data.needNum,
-    //     require: this.data.request,
-    //     endDate: this.data.ddl,
-    //     remark: this.data.other,
-    //     teamName: this.data.teamName,
-    //     contact: this.data.contact,
-    //     members: this.data.memberList,
-    //   },
-    //   success: res => {
-    //     console.log('needmember', res)
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   },
-    // })
+    wx.cloud.callFunction({
+      name: 'editRecruit',
+      data: {
+        activityName: this.data.activityName,
+        activityIntro: this.data.activityContent,
+        expectNum: this.data.needNum,
+        require: this.data.request,
+        endDate: this.data.ddl,
+        remark: this.data.other,
+        teamName: this.data.teamName,
+        contact: this.data.contact,
+        members: this.data.memberList,
+        teamId:this.data.teamID,
+      },
+      success: res => {
+        console.log('teamedit_modify', res)
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 
   /**
