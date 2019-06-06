@@ -1,2 +1,47 @@
-<!--pages/ucenter/needMemberDetail/needMember.wxml-->
-<text>pages/ucenter/needMemberDetail/needMember.wxml</text>
+<!--miniprogram/pages/team/teamDetail/teamDetail.wxml-->
+
+<view class="detail_teamName">
+  <text>团队名称：</text>
+  <input class="teamName" value="{{ teamName }}" disabled/>
+</view>  
+<view class="detail_activityName">
+  <text>活动名称：</text>
+  <input class="activityName" value="{{ activityName }}" disabled/>
+</view> 
+<view class='detail_activityContent'>
+  <text>活动内容：</text>
+  <textarea value='{{activityContent}}' class='activityContent' disabled  >
+  </textarea>
+</view>
+<view class="detail_needNum">
+  <text>需要人数：</text>
+  <input class="needNum" value="{{ needNum}}" disabled/>
+</view> 
+<view class='detail_memberList'>
+  <text>已有成员：</text>
+  <textarea value='{{memberList}}' class='memberList' disabled >
+  </textarea>
+</view>
+<view class='detail_request'>
+  <text>招募要求：</text>
+  <textarea value='{{request}}'  class='request' disabled>
+  </textarea>
+</view>
+<view class='detail_contact'>
+  <text>联系方式：</text>
+  <textarea value='{{contact}}' class='contact' disabled >
+  </textarea>
+</view>
+<view class='detail_ddl'>
+  <picker mode="date" value="{{ddl}}" disabled>
+    <view class="ddl">
+      截止日期: {{ddl}}
+    </view>
+  </picker>
+</view>
+<view class='detail_other'>
+  <text>备注：</text>
+  <textarea value='{{other}}' class='other'  disabled >
+  </textarea>
+</view>
+<button class='motify' bindtap='motify'>修改</button> 
