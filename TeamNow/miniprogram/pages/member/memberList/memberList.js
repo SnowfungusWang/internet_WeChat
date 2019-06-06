@@ -44,8 +44,20 @@ Page({
     this.setData({
       inputShowed: true
     });
+  }, 
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
   },
   inputTyping: function (e) {
+    // console.log(e.detail.value)
     this.setData({
       inputVal: e.detail.value
     });
@@ -54,11 +66,12 @@ Page({
     this.setData({
       curPage: 1
     });
+    // console.log(this.data.inputVal)
     this.getSearchList(this.data.inputVal);
   },
 
 
-  getSearchList: function (categoryId, append) {
+  getSearchList: function (inputVal) {
     var that = this;
     wx.showLoading({
       "mask": true
@@ -67,7 +80,7 @@ Page({
     wx.cloud.callFunction({
       name: 'SearchApplication',
       data: {
-        'keywords': that.data.inputVal.toString(),
+        'keywords': inputVal.toString(),
       },
       success: function (msg) {
         wx.hideLoading();
