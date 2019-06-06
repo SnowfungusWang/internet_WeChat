@@ -13,6 +13,7 @@ Page({
     contact: '',
     ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
     other: '',
+    memberID:'',
 
   },
 
@@ -20,6 +21,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options)
+    this.setData({
+      memberID: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'GetApplicationById',
+      data: {
+        applicationId: this.data.memberID,
+      },
+      success: res => {
+        console.log('memberDetail', res)
+        let date = new Date(res.result.data[0].time)
+        this.setData({
+          activityName: res.result.data[0].title,
+          name: res.result.data[0].name,
+          school: res.result.data[0].school,
+          selfInfo: res.result.data[0].selfDescription,
+          contact: res.result.data[0].contact,
+          ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
+          other: res.result.data[0].remark,
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
 
   },
 
@@ -163,6 +190,7 @@ Page({
  * 点击招募button提交整个表单
  */
   bindFormSubmit: function (e) {
+    console.log('!!')
     this.setData({
       focus: 'false',
       activityContent: this.data.activityContent,
@@ -171,26 +199,25 @@ Page({
       contact: this.data.contact,
       other: this.data.other,
     })
-    // wx.cloud.callFunction({
-    //   name: 'releaseRecruit',
-    //   data: {
-    //     activityName: this.data.activityName,
-    //     activityIntro: this.data.activityContent,
-    //     expectNum: this.data.needNum,
-    //     require: this.data.request,
-    //     endDate: this.data.ddl,
-    //     remark: this.data.other,
-    //     teamName: this.data.teamName,
-    //     contact: this.data.contact,
-    //     members: this.data.memberList,
-    //   },
-    //   success: res => {
-    //     console.log('needmember', res)
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   },
-    // })
+    wx.cloud.callFunction({
+      name: 'UpdateApplicationByUserId',
+      data: {
+        applicationId:this.data.memberID,
+        name:this.data.name,
+        school:this.data.school,
+        selfDescription:this.data.selfInfo,
+        contact:this.data.contact,
+        title:this.data.activityName,
+        remark:this.data.other,
+        time:this.data.ddl
+      },
+      success: res => {
+        console.log('memberedit', res)
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 
   /**
