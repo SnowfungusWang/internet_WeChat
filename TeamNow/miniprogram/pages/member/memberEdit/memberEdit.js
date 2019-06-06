@@ -104,12 +104,14 @@ Page({
    * 保存活动名称
    */
   activityName_inputChange: function (e) {
+    console.log(e)
     this.setData({
       activityName: e.detail.value
     })
   },
 
   activityName_detail: function (e) {
+    console.log(e)
     this.setData({
       activityName: this.detail.value
     })
@@ -193,11 +195,9 @@ Page({
     console.log('!!')
     this.setData({
       focus: 'false',
-      activityContent: this.data.activityContent,
-      memberList: this.data.memberList,
-      request: this.data.request,
       contact: this.data.contact,
       other: this.data.other,
+      selfInfo: this.data.selfInfo,
     })
     wx.cloud.callFunction({
       name: 'UpdateApplicationByUserId',
@@ -224,6 +224,17 @@ Page({
    * delete
    */
   delete: function (e) {
-
+    wx.cloud.callFunction({
+      name: 'DeleteApplicationById',
+      data: {
+        applicationId: this.data.memberID,
+      },
+      success: res => {
+        console.log('member_delete', res)
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   }
 })
