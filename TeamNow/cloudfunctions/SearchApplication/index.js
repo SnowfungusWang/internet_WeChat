@@ -19,7 +19,6 @@ exports.main = async (event, context) => {
   else{
     var options = {
       shouldSort: true,
-      includeScore: true,
       threshold: 0.4,
       location: 0,
       distance: 100,
