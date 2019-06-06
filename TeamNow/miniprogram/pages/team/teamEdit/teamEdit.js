@@ -245,6 +245,18 @@ Page({
    * delete
    */
   delete:function(e){
+    wx.cloud.callFunction({
+      name: 'DeleteApplicationById',
+      data: {
+        applicationId: this.data.teamID,
+      },
+      success: res => {
+        console.log('team_delete', res)
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
 
   }
 })
