@@ -99,7 +99,7 @@ Page({
   },
   motify: function () {
     wx.navigateTo({
-      url: "/pages/member/memberEdit/memberEdit?id=" + this.data.teamID,
+      url: "/pages/member/memberEdit/memberEdit?id=" + this.data.applicationId,
     })
   }
 })
