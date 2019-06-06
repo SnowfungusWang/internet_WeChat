@@ -8,27 +8,7 @@ Page({
   data: {
     inputShowed: false, // 是否显示搜索框
     inputVal: "", // 搜索框内容
-    list: [{
-      contact: "QQ160609777",
-      name: "zhouzheng",
-      remark: "",
-      school: "nju",
-      selfDescription: "我全栈",
-      time: "2019-06-14T00:00:00.000Z",
-      title: "软工二组队",
-      userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
-      _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
-    }, {
-        contact: "QQ160609777",
-        name: "zhouzheng",
-        remark: "",
-        school: "nju",
-        selfDescription: "我全栈",
-        time: "2019-06-14T00:00:00.000Z",
-        title: "软工二组队",
-        userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
-        _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
-      }],
+    list: [],
     curPage: 1,
     pageSize: 20
   },
@@ -87,18 +67,14 @@ Page({
         // console.log(msg.result);
         var applications = msg.result;
         // console.log(applications)
-        var li = [];
         if (applications != null) {
           console.log(that.data.list)
-          for (var i=0;i < applications.length;i++) {
-            // console.log(applications[i].item)
-            li.push(applications[i].item)
-          }
+          that.setData({
+            list: applications
+          });
         }
-        that.setData({
-          list: li,
-        });
-        console.log(that.data.list);
+        
+        // console.log(that.data.list);
       },
       fail: function (err) {
         wx.hideLoading();
@@ -119,11 +95,15 @@ Page({
    */
   onReady: function () {
     const that = this;
+    wx.showLoading({
+      "mask": true
+    })
     wx.cloud.callFunction({
       name: 'GetAllApplication',
       data: {
       },
       success: function (msg) {
+        wx.hideLoading();
         // console.log(msg.result);
         var applications = msg.result.data;
         if (applications!=null) {

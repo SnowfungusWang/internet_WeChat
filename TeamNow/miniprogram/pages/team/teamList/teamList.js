@@ -7,31 +7,7 @@ Page({
   data: {
     inputShowed: false, // 是否显示搜索框
     inputVal: "", // 搜索框内容
-    list: [{
-      activityIntro: "活动的简要介绍",
-      activityName: "校运会",
-      contact: "18811112222",
-      endDate: "2019-06-04",
-      expectNum: "14",
-      members: "5",
-      openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-      remark: "8",
-      require: "9",
-      teamName: "team1",
-      _id: "6cd397ca5cf5bee00b41160e698d4092"
-    },{
-      activityIntro: "活动介绍",
-      activityName: "活动名称",
-      contact: "联系方式",
-      endDate: "结束日期2019-06-04",
-      expectNum: "期望个数4",
-      members: "已有人数5",
-      openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-      remark: "分数8",
-      require: "需要6",
-      teamName: "队伍名称1",
-      _id: "6cd397ca5cf5bee00b41160e698d4092"
-    }],
+    list: [],
     curPage: 1,
     pageSize: 20
   },
@@ -43,14 +19,9 @@ Page({
     })
   },
   
-  toSearch: function () {
-    this.setData({
-      curPage: 1
-    });
-    this.getSearchList(this.data.activeCategoryId);
-  },
-  
-  // 以下为搜索框事件
+
+
+  //搜索
   showInput: function () {
     this.setData({
       inputShowed: true
@@ -68,70 +39,53 @@ Page({
     });
   },
   inputTyping: function (e) {
-    // console.log(e.detail.value);
+    // console.log(e.detail.value)
     this.setData({
       inputVal: e.detail.value
     });
   },
-  // getSearchList: function (categoryId, append) {
-  //   // if (categoryId == 0) {
-  //   //   categoryId = "";
-  //   // }
-  //   var that = this;
-  //   wx.showLoading({
-  //     "mask": true
-  //   })
+  toSearch: function () {
+    this.setData({
+      curPage: 1
+    });
+    // console.log(this.data.inputVal)
+    this.getSearchList(this.data.inputVal);
+  },
 
-  //   wx.cloud.callFunction({
-  //     name: 'getAllRecruit',
-  //     data: {
 
-  //     },
-  //     success: function (msg) {
-  //       var recruits = msg.result.recruits;
-  //       // console.log(recruits);
-  //       that.setData({
-  //         list: recruits,
-  //       });
+  getSearchList: function (inputVal) {
+    var that = this;
+    wx.showLoading({
+      "mask": true
+    })
 
-  //       console.log(that.data.list);
-  //       // wx.hideLoading();
-  //     },
-  //     fail: function (err) {
-  //       console.error(err)
-  //     }
-  //   });
+    wx.cloud.callFunction({
+      name: 'SearchRecruit',
+      data: {
+        'keywords': inputVal.toString(),
+      },
+      success: function (msg) {
+        wx.hideLoading();
+        // console.log(msg.result);
+        var recruits = msg.result;
+        // console.log(recruits)
+        if (recruits != null) {
+          console.log(that.data.list)
+          that.setData({
+            list: recruits
+          });
+        }
 
-  //   WXAPI.goods({
-  //     categoryId: categoryId,
-  //     nameLike: that.data.inputVal,
-  //     page: this.data.curPage,
-  //     pageSize: this.data.pageSize
-  //   }).then(function (res) {
-  //     wx.hideLoading()
-  //     if (res.code == 404 || res.code == 700) {
-  //       let newData = {
-  //         loadingMoreHidden: false
-  //       }
-  //       if (!append) {
-  //         newData.goods = []
-  //       }
-  //       that.setData(newData);
-  //       return
-  //     }
-  //     let goods = [];
-  //     if (append) {
-  //       goods = that.data.goods
-  //     }
-  //     for (var i = 0; i < res.data.length; i++) {
-  //       goods.push(res.data[i]);
-  //     }
-  //     that.setData({
-  //       loadingMoreHidden: true,
-  //       goods: goods,
-  //     });
-  //   })
-  // },
+        // console.log(that.data.list);
+      },
+      fail: function (err) {
+        wx.hideLoading();
+        console.error(err)
+      }
+    });
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -144,11 +98,15 @@ Page({
    */
   onReady: function () {
     const that = this;
+    wx.showLoading({
+      "mask": true
+    })
     wx.cloud.callFunction({
       name: 'getAllRecruit',
       data: {
       },
       success: function (msg) {
+        wx.hideLoading();
         var recruits = msg.result.recruits;
         // console.log(recruits);
         that.setData({
