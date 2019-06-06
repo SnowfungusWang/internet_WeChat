@@ -73,44 +73,65 @@ Page({
       inputVal: e.detail.value
     });
   },
-  getSearchList: function (categoryId, append) {
-    if (categoryId == 0) {
-      categoryId = "";
-    }
-    var that = this;
-    wx.showLoading({
-      "mask": true
-    })
-    WXAPI.goods({
-      categoryId: categoryId,
-      nameLike: that.data.inputVal,
-      page: this.data.curPage,
-      pageSize: this.data.pageSize
-    }).then(function (res) {
-      wx.hideLoading()
-      if (res.code == 404 || res.code == 700) {
-        let newData = {
-          loadingMoreHidden: false
-        }
-        if (!append) {
-          newData.goods = []
-        }
-        that.setData(newData);
-        return
-      }
-      let goods = [];
-      if (append) {
-        goods = that.data.goods
-      }
-      for (var i = 0; i < res.data.length; i++) {
-        goods.push(res.data[i]);
-      }
-      that.setData({
-        loadingMoreHidden: true,
-        goods: goods,
-      });
-    })
-  },
+  // getSearchList: function (categoryId, append) {
+  //   // if (categoryId == 0) {
+  //   //   categoryId = "";
+  //   // }
+  //   var that = this;
+  //   wx.showLoading({
+  //     "mask": true
+  //   })
+
+  //   wx.cloud.callFunction({
+  //     name: 'getAllRecruit',
+  //     data: {
+
+  //     },
+  //     success: function (msg) {
+  //       var recruits = msg.result.recruits;
+  //       // console.log(recruits);
+  //       that.setData({
+  //         list: recruits,
+  //       });
+
+  //       console.log(that.data.list);
+  //       // wx.hideLoading();
+  //     },
+  //     fail: function (err) {
+  //       console.error(err)
+  //     }
+  //   });
+
+  //   WXAPI.goods({
+  //     categoryId: categoryId,
+  //     nameLike: that.data.inputVal,
+  //     page: this.data.curPage,
+  //     pageSize: this.data.pageSize
+  //   }).then(function (res) {
+  //     wx.hideLoading()
+  //     if (res.code == 404 || res.code == 700) {
+  //       let newData = {
+  //         loadingMoreHidden: false
+  //       }
+  //       if (!append) {
+  //         newData.goods = []
+  //       }
+  //       that.setData(newData);
+  //       return
+  //     }
+  //     let goods = [];
+  //     if (append) {
+  //       goods = that.data.goods
+  //     }
+  //     for (var i = 0; i < res.data.length; i++) {
+  //       goods.push(res.data[i]);
+  //     }
+  //     that.setData({
+  //       loadingMoreHidden: true,
+  //       goods: goods,
+  //     });
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
