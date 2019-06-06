@@ -1,1 +1,21 @@
-/* miniprogram/pages/ucenter/aboutMore/aboutMore.wxss */
+.contain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color:#fff;
+  width: 670rpx;
+  margin: auto;
+  padding: 40rpx;
+}
+.title{
+  font-size: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50rpx;
+}
+.contact{
+  align-items: center;
+  margin: 35rpx 0;
+}

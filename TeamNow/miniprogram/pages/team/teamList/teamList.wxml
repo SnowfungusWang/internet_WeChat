@@ -1,17 +1,17 @@
 <!--miniprogram/pages/team/teamList/teamList.wxml-->
-<text>miniprogram/pages/team/teamList/teamList.wxml</text>
+<!-- <text>miniprogram/pages/team/teamList/teamList.wxml</text>
 <button bindtap='toEdit'>toEdit</button>
 <button bindtap='toDetail'>toDetail</button>
 <button bindtap='toMemberDetail'>toMemberDetail</button>
-<button bindtap='toMemberEdit'>toMemberEdit</button>
+<button bindtap='toMemberEdit'>toMemberEdit</button> -->
 
 
 <view class='container'>
-  <view class='header'>
+  <!-- <view class='header'>
     <text class='header-title'>招募信息列表</text>
     <view>只展示有限的信息，点击跳转至对应详情</view>
     <view>含有搜索框，搜索策略自定义，至少可以按活动和截止日期（待完成）</view>
-  </view>  
+  </view>   -->
   <view class='body'>
 
     <view class="weui-search-bar">

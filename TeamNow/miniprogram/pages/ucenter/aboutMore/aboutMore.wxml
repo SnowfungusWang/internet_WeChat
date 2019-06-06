@@ -1,10 +1,16 @@
 <!--miniprogram/pages/ucenter/aboutMore/aboutMore.wxml-->
-<text>关于开发者团队</text>
+<view class='contain'>
+<text class='title'>关于开发者团队</text>
+
 <view class='staff'>
   <view class='member'>帅气前端hxh</view>
   <view class='member'>靠谱大佬hxw</view>
   <view class='member'>沉稳帅气sdj</view>
   <view class='member'>快乐沙雕wxj</view>
-  <view class='member'>全栈开发周政（这个缩写吧emm不合适）</view>
+  <view class='member'>全栈开发z大佬</view>
 </view>
-<view class='contact'>如遇bug/想探讨/想提问：2926256192@qq.com</view>
+<view class='contact'>
+<view >如遇bug/想探讨/想提问：</view>
+<view>你看名字还猜不出是谁吗2333333</view>
+</view>
+</view>

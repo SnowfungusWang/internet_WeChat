@@ -2,11 +2,11 @@
 
 
 <view class='container'>
-  <view class='header'>
+  <!-- <view class='header'>
     <text class='header-title'>请求组队信息列表</text>
     <view>只展示有限的信息，点击跳转至对应详情</view>
     <view>含有搜索框，搜索策略自定义，至少可以按 * *（代办）</view>
-  </view>  
+  </view>   -->
   <view class='body'>
 
     <view class="weui-search-bar">
