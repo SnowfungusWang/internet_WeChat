@@ -7,16 +7,15 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const db = cloud.database()
 
   var all = await cloud.callFunction({
-    name: "GetAllApplication",
+    name: "getAllRecruit",
     data: {}
   })
-  if (all.result.data.length==0){
-    return []
+  if (all.result.recruits.length == 0) {
+    return  []
   }
-  else{
+  else {
     var options = {
       shouldSort: true,
       threshold: 0.4,
@@ -25,14 +24,14 @@ exports.main = async (event, context) => {
       maxPatternLength: 32,
       minMatchCharLength: 1,
       keys: [
-        "title",
+        "activityIntro",
+        "activityName",
         "remark",
-        "school",
-        "selfDescription"
+        "require",
+        "teamName"
       ]
     };
-    var fuse = new Fuse(all.result.data, options);
+    var fuse = new Fuse(all.result.recruits, options);
     return fuse.search(event.keywords);
   }
-  
 }
