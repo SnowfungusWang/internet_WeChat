@@ -11,9 +11,9 @@ Page({
     school: '',
     selfInfo: '',
     contact: '',
-    ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
+    ddl: '',
     other: '',
-
+    memberID:'',
   },
 
   /**
@@ -21,32 +21,31 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    // this.setData({
-    //   teamID: options.id
-    // })
-    // wx.cloud.callFunction({
-    //   name: 'getRecruitById',
-    //   data: {
-    //     teamId: this.data.teamID,
-    //   },
-    //   success: res => {
-    //     console.log('teamDetail', res)
-    //     this.setData({
-    //       teamName: res.result.recruit.teamName,
-    //       activityName: res.result.recruit.activityName,
-    //       activityContent: res.result.recruit.activityIntro,
-    //       needNum: res.result.recruit.expectNum,
-    //       memberList: res.result.recruit.members,
-    //       request: res.result.recruit.require,
-    //       contact: res.result.recruit.contact,
-    //       ddl: res.result.recruit.endDate,
-    //       other: res.result.recruit.remark,
-    //     })
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   },
-    // })
+    this.setData({
+      memberID: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'GetApplicationById',
+      data: {
+        applicationId: this.data.memberID,
+      },
+      success: res => {
+        console.log('memberDetail', res)
+        let date = new Date(res.result.data[0].time)
+        this.setData({
+          activityName: res.result.data[0].title,
+          name: res.result.data[0].name,
+          school: res.result.data[0].school,
+          selfInfo: res.result.data[0].selfDescription,
+          contact: res.result.data[0].contact,
+          ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
+          other: res.result.data[0].remark,
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 
   /**
