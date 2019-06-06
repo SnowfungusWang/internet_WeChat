@@ -7,31 +7,7 @@ Page({
     data: {
       inputShowed: false, // 是否显示搜索框
       inputVal: "", // 搜索框内容
-      list: [{
-        activityIntro: "活动的简要介绍",
-        activityName: "校运会",
-        contact: "18811112222",
-        endDate: "2019-06-04",
-        expectNum: "14",
-        members: "5",
-        openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-        remark: "8",
-        require: "9",
-        teamName: "team1",
-        _id: "6cd397ca5cf5bee00b41160e698d4092"
-      }, {
-        activityIntro: "活动介绍",
-        activityName: "活动名称",
-        contact: "联系方式",
-        endDate: "结束日期2019-06-04",
-        expectNum: "期望个数4",
-        members: "已有人数5",
-        openId: "ooRJ85dmDzgsGmw-EmpMsF1f_vNY",
-        remark: "分数8",
-        require: "需要6",
-        teamName: "队伍名称1",
-        _id: "6cd397ca5cf5bee00b41160e698d4092"
-      }],
+      list: [],
       curPage: 1,
       pageSize: 20
     },

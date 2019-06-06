@@ -1,2 +1,45 @@
-<!--pages/ucenter/needTeamDetail/needTeam.wxml-->
-<text>pages/ucenter/needTeamDetail/needTeam.wxml</text>
+
+<view class="detail_activityName">
+  <text>活动：</text>
+  <input class="activityName" value="{{ activityName }}" disabled/>
+</view> 
+<view class="detail_name">
+  <text>姓名：</text>
+  <input class="name" value="{{ name }}" disabled/>
+</view> 
+<view class="detail_school">
+  <text>学校：</text>
+  <input class="school" value="{{school }}" disabled/>
+</view> 
+<view class='detail_selfInfo'>
+  <text>自我简介：</text>
+  <textarea value='{{selfInfo}}'  
+            class='selfInfo'
+            disabled>
+  </textarea>
+</view>
+
+<view class='detail_contact'>
+  <text>联系方式：</text>
+  <textarea disabled
+            value='{{contact}}'    
+            auto-focus
+            class='contact' >
+  </textarea>
+</view>
+<view class='detail_ddl'>
+  <picker mode="date" value="{{ddl}}" bindchange="bindddlChange" disabled>
+    <view class="ddl">
+      组队申请时间 : 现在 -  {{ddl}}
+    </view>
+  </picker>
+</view>
+<view class='detail_other'>
+  <text>备注：</text>
+  <textarea disabled
+            value='{{other}}'   
+            auto-focus
+            class='other' >
+  </textarea>
+</view>
+<button class='motify' bindtap='motify'>修改</button> 

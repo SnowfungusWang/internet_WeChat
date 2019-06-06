@@ -191,25 +191,41 @@ Page({
       contact: this.data.contact,
       other: this.data.other,
     })
-    // wx.cloud.callFunction({
-    //   name: 'releaseRecruit',
-    //   data: {
-    //     activityName: this.data.activityName,
-    //     activityIntro: this.data.activityContent,
-    //     expectNum: this.data.needNum,
-    //     require: this.data.request,
-    //     endDate: this.data.ddl,
-    //     remark: this.data.other,
-    //     teamName: this.data.teamName,
-    //     contact: this.data.contact,
-    //     members: this.data.memberList,
-    //   },
-    //   success: res => {
-    //     console.log('needmember', res)
-    //   },
-    //   fail: err => {
-    //     console.error(err)
-    //   },
-    // })
+    let that=this
+    wx.cloud.callFunction({
+      name: 'releaseRecruit',
+      data: {
+        activityName: that.data.activityName,
+        activityIntro: that.data.activityContent,
+        expectNum: that.data.needNum,
+        require: that.data.request,
+        endDate: that.data.ddl,
+        remark: that.data.other,
+        teamName: that.data.teamName,
+        contact: that.data.contact,
+        members: that.data.memberList,
+      },
+      success: res => {
+        // console.log('needmember', res)
+        wx.showModal({
+          title: '您已提交成功',
+          content: '您已成功提交招募信息申请，可到“我的招募”中查看',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            // console.log(res);
+            if (res.confirm) {
+              console.log('回到主界面')
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }
+          }
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 })

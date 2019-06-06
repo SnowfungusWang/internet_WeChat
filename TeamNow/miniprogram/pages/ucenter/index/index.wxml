@@ -1,7 +1,10 @@
 <view class='container'>
   <view class='basicInfo'>
-    <image class="avatar" src="../../images/tab/code-db-inc-dec.png"></image>
-    <view class='username'>xiaoming</view>
+    <image class="avatar" src="{{avatar}}"></image>
+    <view class='word'>
+      <view class='username'>姓名：{{name}}</view>
+      <view class='studentId'>学号：{{studentId}}</view>
+    </view>
   </view>
 
   <view class='detailList'>

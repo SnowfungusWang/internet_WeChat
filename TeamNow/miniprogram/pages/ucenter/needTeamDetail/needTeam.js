@@ -1,10 +1,19 @@
-// pages/ucenter/needTeamDetail/needTeam.js
+// miniprogram/pages/team/teamDetail/teamDetail.js
+var date = new Date()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    activityName: '',
+    name: '',
+    school: '',
+    selfInfo: '',
+    contact: '',
+    ddl: date.getFullYear() + '-' + ((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()),
+    other: '',
+    applicationId:'',
 
   },
 
@@ -12,7 +21,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(options)
+    this.setData({
+      applicationId: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'GetApplicationById',
+      data: {
+        applicationId: this.data.applicationId,
+      },
+      success: res => {
+        console.log('teamDetail', res)
+        this.setData({
+          teamName: res.result.recruit.teamName,
+          activityName: res.result.recruit.activityName,
+          activityContent: res.result.recruit.activityIntro,
+          needNum: res.result.recruit.expectNum,
+          memberList: res.result.recruit.members,
+          request: res.result.recruit.require,
+          contact: res.result.recruit.contact,
+          ddl: res.result.recruit.endDate,
+          other: res.result.recruit.remark,
+        })
+      },
+      fail: err => {
+        console.error(err)
+      },
+    })
   },
 
   /**
@@ -62,5 +97,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  motify: function () {
+    wx.navigateTo({
+      url: "/pages/member/memberEdit/memberEdit?id=" + this.data.teamID,
+    })
   }
 })

@@ -31,6 +31,7 @@ Page({
         //   name: addUser
         // })
 
+
         if(au){
           wx.switchTab({
             url: '../ucenter/index/index',

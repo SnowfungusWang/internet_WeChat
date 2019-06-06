@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    avatar:'',
+    name:'',
+    studentId:''
   },
 
   /**
@@ -26,7 +28,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that=this
+    wx.cloud.callFunction({
+      name:'getUserInfo',
+      success(res){
+        let result = res.result
+        if (result.success) {
+          let user = result.user
+          that.setData({
+            name: user.name,
+            studentId: user.studentId,
+            avatar: wx.getStorageSync('avatarUrl')
+          })
+        }
+      }
+    })
   },
 
   /**

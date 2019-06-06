@@ -24,7 +24,7 @@ Page({
   toDetailsTap: function (e) {
     // console.log(e.currentTarget)
     wx.navigateTo({
-      url: "/pages/member/memberDetail/memberDetail?id=" + e.currentTarget.dataset.id
+      url: "/pages/ucenter/needTeamDetail/needTeam?id=" + e.currentTarget.dataset.id
     })
   },
   inputTyping: function (e) {
@@ -56,9 +56,6 @@ Page({
             list: applications,
           });
         }
-
-
-        console.log(that.data.list);
       },
       fail: function (err) {
         console.error(err)

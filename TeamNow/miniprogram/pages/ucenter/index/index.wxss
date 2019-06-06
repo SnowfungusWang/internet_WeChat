@@ -1,24 +1,32 @@
 .basicInfo{
   background-color: #FFFFFF;
   width: 650rpx;
-  padding: 20rpx;
+  padding: 40rpx;
   font-size: 28rpx;
-  margin-bottom: 20rpx
+  margin-bottom: 20rpx;
+  display: flex
 }
 .basicInfo .avatar{
   height: 148rpx;
   width: 148rpx;
   border-radius: 50%;
-  margin-right: 70rpx
+  margin-right: 70rpx;
 }
 
+
+.word{
+  flex: 1;
+  font-size: 40rpx;
+  justify-content: center;
+  align-content: center;
+}
 .basicInfo .username{
+  margin-bottom:20rpx 
 
 }
 
 .detailList{
   position: relative;
- 
   width: 690rpx;
 }
 
