@@ -1,7 +1,7 @@
 
 <form bindsubmit="bindFormSubmit">
 <view class="detail_teamName">
-  <text>团队名称：</text>
+  <text>团队名称：</text> 
   <input class="teamName" value="{{ teamName }}" 
   placeholder="请输入团队名称" 
   auto-focus bindinput="teamName_inputChange" bindconfirm="teamName_detail"/>

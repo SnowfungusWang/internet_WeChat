@@ -1,10 +1,15 @@
 {
   "pages": [
+    "pages/loading/loading",
+    "pages/getAu/getAu",
+    "pages/login/login",
     "pages/team/teamList/teamList",
     "pages/ucenter/index/index",
     "pages/ucenter/userInfo/userInfo",
     "pages/ucenter/needTeamList/needTeam",
     "pages/ucenter/needMemberList/needMember",
+    "pages/ucenter/needTeamDetail/needTeam",
+    "pages/ucenter/needMemberDetail/needMember",
     "pages/ucenter/newMember/newMember",
     "pages/ucenter/newTeam/newTeam",
     "pages/ucenter/aboutMore/aboutMore",
@@ -14,7 +19,6 @@
     "pages/team/teamDetail/teamDetail",
     "pages/team/teamEdit/teamEdit",
     "pages/team/modifysuccess/modifysuccess",
-    "pages/login/login",
     "pages/ucenter/editInfo/editInfo"
   ],
   "window": {

@@ -9,7 +9,7 @@
   </view>  
   <view class='body'>
 
-    <!-- <view class="weui-search-bar">
+    <view class="weui-search-bar">
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -26,15 +26,15 @@
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>      
-    </view> -->
+    </view>
   
     <view class='list-col' wx:for="{{list}}" bindtap='toDetailsTap' data-id="{{item._id}}">
       <i-card full='true' title="{{item.title}}" extra="来自 {{ item.school}}">
         <view slot="content" class="card_content">
           <text> 请求人：{{ item.name }}\n\n</text>
           <text> 联系方式：\n{{ item.contact }}\n\n</text>
-          <text> 自我描述：\n{{ item.selfDescription }}\n\n</text>
-          <text> 备注：\n{{ item.remark }}\n\n</text>
+          <!-- <text> 自我描述：\n{{ item.selfDescription }}\n\n</text> -->
+          <!-- <text> 备注：\n{{ item.remark }}\n\n</text> -->
         </view>
         <view slot="footer">
           <text> 发送时间： {{ item.time }}\n\n</text>

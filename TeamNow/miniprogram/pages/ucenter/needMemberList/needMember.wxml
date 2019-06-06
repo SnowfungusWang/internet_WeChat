@@ -1,7 +1,22 @@
-<view >
-  我的招募列表
-</view>
 <view class='container'>
-  <text class='name_'></text>
-
+  <view class='body'>
+    <view class='list-col' wx:for="{{list}}" bindtap='toDetailsTap' data-id="{{item._id}}">
+      <i-card full='true' title="{{item.activityName}}" extra="需要{{ item.require}}人">
+        <view slot="content" class="card_content">
+          <text> 团队名称：{{ item.teamName }}\n\n</text>
+          <!-- <text> 组队信息：\n{{ item.activityIntro }}\n\n</text> -->
+          <!-- <text> 联系方式：\n{{ item.contact }}\n\n</text> -->
+          <!-- <text> 期望人数：\n{{ item.expectNum }}\n\n</text> -->
+          <text> 已有人数：{{ item.members }} / {{ item.expectNum }}\n\n</text>
+          <!-- <text> 备注：\n{{ item.remark }}\n\n</text> -->
+        </view>
+        <view slot="footer">
+          <text> 结束时间： {{ item.endDate }}\n\n</text>
+        </view>
+      </i-card>
+    </view>
+    
+  </view>
 </view>
+
+<button class='motify' bindtap='motify'></button>
