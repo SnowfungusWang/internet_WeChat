@@ -6,17 +6,7 @@ Page({
   data: {
     inputShowed: false, // 是否显示搜索框
     inputVal: "", // 搜索框内容
-    list: [{
-      contact: "QQ160609777",
-      name: "zhouzheng",
-      remark: "",
-      school: "nju",
-      selfDescription: "我全栈",
-      time: "2019-06-14T00:00:00.000Z",
-      title: "软工二组队",
-      userId: "ooRJ85QcEDT7f99ZGO9pJn-0Syas",
-      _id: "6cd397ca5cf51dfa0b1527e52d61c9ff"
-    }],
+    list: [],
     curPage: 1,
     pageSize: 20
   },
