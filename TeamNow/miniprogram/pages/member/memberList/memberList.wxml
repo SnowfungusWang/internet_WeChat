@@ -9,7 +9,7 @@
   </view>  
   <view class='body'>
 
-    <!-- <view class="weui-search-bar">
+    <view class="weui-search-bar">
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -26,7 +26,7 @@
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>      
-    </view> -->
+    </view>
   
     <view class='list-col' wx:for="{{list}}" bindtap='toDetailsTap' data-id="{{item._id}}">
       <i-card full='true' title="{{item.title}}" extra="来自 {{ item.school}}">

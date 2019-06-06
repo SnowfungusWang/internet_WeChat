@@ -39,7 +39,25 @@ Page({
       url: "/pages/member/memberDetail/memberDetail?id=" + e.currentTarget.dataset.id
     })
   },
+  //搜索
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  }, 
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
   inputTyping: function (e) {
+    // console.log(e.detail.value)
     this.setData({
       inputVal: e.detail.value
     });
@@ -48,8 +66,47 @@ Page({
     this.setData({
       curPage: 1
     });
-    this.getGoodsList(this.data.activeCategoryId);
+    // console.log(this.data.inputVal)
+    this.getSearchList(this.data.inputVal);
   },
+
+
+  getSearchList: function (inputVal) {
+    var that = this;
+    wx.showLoading({
+      "mask": true
+    })
+
+    wx.cloud.callFunction({
+      name: 'SearchApplication',
+      data: {
+        'keywords': inputVal.toString(),
+      },
+      success: function (msg) {
+        wx.hideLoading();
+        // console.log(msg.result);
+        var applications = msg.result;
+        // console.log(applications)
+        var li = [];
+        if (applications != null) {
+          console.log(that.data.list)
+          for (var i=0;i < applications.length;i++) {
+            // console.log(applications[i].item)
+            li.push(applications[i].item)
+          }
+        }
+        that.setData({
+          list: li,
+        });
+        console.log(that.data.list);
+      },
+      fail: function (err) {
+        wx.hideLoading();
+        console.error(err)
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -67,7 +124,7 @@ Page({
       data: {
       },
       success: function (msg) {
-        console.log(msg.result);
+        // console.log(msg.result);
         var applications = msg.result.data;
         if (applications!=null) {
           that.setData({
@@ -76,7 +133,7 @@ Page({
         }
         
 
-        console.log(that.data.list);
+        // console.log(that.data.list);
       },
       fail: function (err) {
         console.error(err)
