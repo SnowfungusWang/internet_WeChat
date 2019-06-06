@@ -210,6 +210,7 @@ Page({
   * 点击招募button提交整个表单
   */
   bindFormSubmit: function (e) {
+    let that=this.data.teamID
     this.setData({
       focus: 'false',
       activityContent: this.data.activityContent,
@@ -234,6 +235,20 @@ Page({
       },
       success: res => {
         console.log('teamedit_modify', res)
+        wx.showModal({
+          title: '修改成功',
+          content: '您已成功修改组队信息',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            if (res.confirm) {
+              console.log('回到个人信息')
+              wx.navigateTo({
+                url: '/pages/ucenter/needMemberDetail/needMember?id=' + that,
+              })
+            }
+          }
+        })
       },
       fail: err => {
         console.error(err)
@@ -252,6 +267,20 @@ Page({
       },
       success: res => {
         console.log('team_delete', res)
+        wx.showModal({
+          title: '删除成功',
+          content: '您已成功删除组队信息',
+          showCancel: false,
+          confirmText: "确定",
+          success: function (res) {
+            if (res.confirm) {
+              console.log('回到个人信息')
+              wx.navigateTo({
+                url: '/pages/ucenter/needMemberList/needMember',
+              })
+            }
+          }
+        })
       },
       fail: err => {
         console.error(err)
