@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
     data: {}
   })
   if (all.result.data.length==0){
-    return {}
+    return []
   }
   else{
     var options = {
