@@ -53,6 +53,10 @@ Page({
 
   getSearchList: function (inputVal) {
     var that = this;
+    if (inputVal=='') {
+      this.getAll(that);
+      return;
+    }
     wx.showLoading({
       "mask": true
     })
@@ -83,6 +87,34 @@ Page({
     });
   },
 
+  getAll: function(that) {
+    wx.showLoading({
+      "mask": true
+    })
+    wx.cloud.callFunction({
+      name: 'GetAllApplication',
+      data: {
+      },
+      success: function (msg) {
+        wx.hideLoading();
+        // console.log(msg.result);
+        var applications = msg.result.data;
+        if (applications != null) {
+          that.setData({
+            list: applications,
+          });
+        }
+
+
+        // console.log(that.data.list);
+      },
+      fail: function (err) {
+        wx.hideLoading();
+        console.error(err)
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -95,30 +127,7 @@ Page({
    */
   onReady: function () {
     const that = this;
-    wx.showLoading({
-      "mask": true
-    })
-    wx.cloud.callFunction({
-      name: 'GetAllApplication',
-      data: {
-      },
-      success: function (msg) {
-        wx.hideLoading();
-        // console.log(msg.result);
-        var applications = msg.result.data;
-        if (applications!=null) {
-          that.setData({
-            list: applications,
-          });
-        }
-        
-
-        // console.log(that.data.list);
-      },
-      fail: function (err) {
-        console.error(err)
-      }
-    });
+    this.getAll(that);
 
   },
 

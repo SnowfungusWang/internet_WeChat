@@ -55,10 +55,14 @@ Page({
 
   getSearchList: function (inputVal) {
     var that = this;
+    if (inputVal == '') {
+      this.getAll(that);
+      return;
+    }
+
     wx.showLoading({
       "mask": true
     })
-
     wx.cloud.callFunction({
       name: 'SearchRecruit',
       data: {
@@ -85,19 +89,7 @@ Page({
     });
   },
 
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    const that = this;
+  getAll: function(that) {
     wx.showLoading({
       "mask": true
     })
@@ -110,9 +102,9 @@ Page({
         var recruits = msg.result.recruits;
         // console.log(recruits);
         that.setData({
-          list : recruits,
+          list: recruits,
         });
-        
+
         console.log(that.data.list);
         // wx.hideLoading();
       },
@@ -120,6 +112,20 @@ Page({
         console.error(err)
       }
     });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    const that = this;
+    this.getAll(that);
     
   },
 
